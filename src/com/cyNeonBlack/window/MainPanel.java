@@ -12,6 +12,7 @@ public class MainPanel extends JPanel {
 
 	public Frame frame;
 	public ScorePanel scorePanel;
+	public TowerPanel towerPanel;
 
 	public int width, height;
 
@@ -38,6 +39,9 @@ public class MainPanel extends JPanel {
 
 		scorePanel = new ScorePanel(this);
 		add(scorePanel);
+
+		towerPanel = new TowerPanel(this);
+		add(towerPanel);
 
 	}
 

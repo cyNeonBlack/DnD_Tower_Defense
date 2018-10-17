@@ -29,7 +29,8 @@ public class ScorePanel extends JPanel {
 		setBounds(mp.width - width, 0, width, height);
 
 		score = 0;
-
+		lives = 100;
+		cash = 400;
 	}
 
 	public void paintComponent(Graphics g) {
@@ -42,14 +43,11 @@ public class ScorePanel extends JPanel {
 		g.setColor(new Color(255, 255, 255));
 		g.setFont(new Font("Monospaced", Font.BOLD, 32));
 
-		g.drawString("Lives: ", RES / 2, height / 4 * 1 + RES / 8);
-		g.drawString("Cash : ", RES / 2, height / 4 * 2 + RES / 8);
-		g.drawString("Score: ", RES / 2, height / 4 * 3 + RES / 8);
-
-		g.drawString("" + lives, width - RES / 2 * 3, height / 4 * 1 + RES / 8);
-		g.drawString("" + cash,  width - RES / 2 * 3, height / 4 * 2 + RES / 8);
-		g.drawString("" + score, width - RES / 2 * 3, height / 4 * 3 + RES / 8);
-
+		//@formatter:off
+		g.drawString("Lives: " + lives, RES / 2, height / 4 * 1 + RES / 8);
+		g.drawString("Cash : " + cash,  RES / 2, height / 4 * 2 + RES / 8);
+		g.drawString("Score: " + score, RES / 2, height / 4 * 3 + RES / 8);
+		//@formatter:on
 	}
 
 	public void render() {
