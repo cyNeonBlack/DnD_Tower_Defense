@@ -2,6 +2,7 @@ package com.cyNeonBlack.window;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.MouseInfo;
 
 import javax.swing.JPanel;
 
@@ -39,6 +40,16 @@ public class TowerPanel extends JPanel {
 
 		g.setColor(new Color(0, 0, 100));
 		g.fillRect(0, 0, width, height);
+
+		int mx = MouseInfo.getPointerInfo().getLocation().x - this.getLocationOnScreen().x;
+		int my = MouseInfo.getPointerInfo().getLocation().y - this.getLocationOnScreen().y;
+
+		g.setColor(new Color(255, 255, 255, 96));
+		if (mx > -1 && my > -1) {
+			mx -= mx % RES;
+			my -= my % RES;
+			g.fillRect(mx, my, RES, RES);
+		}
 	}
 
 	public void render() {

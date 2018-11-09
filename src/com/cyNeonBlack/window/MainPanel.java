@@ -8,11 +8,14 @@ import java.util.TimerTask;
 
 import javax.swing.JPanel;
 
+import com.cyNeonBlack.handlers.MapHandler;
+
 public class MainPanel extends JPanel {
 
 	public Frame frame;
 	public ScorePanel scorePanel;
 	public TowerPanel towerPanel;
+	public MapPanel mapPanel;
 
 	public int width, height;
 
@@ -40,9 +43,12 @@ public class MainPanel extends JPanel {
 		add(scorePanel);
 		towerPanel = new TowerPanel(this);
 		add(towerPanel);
-		
+
 		// Map setup
-		
+		MapHandler.initMaps();
+
+		mapPanel = new MapPanel(this, MapHandler.maps.get(0));
+		add(mapPanel);
 
 	}
 
@@ -81,6 +87,8 @@ public class MainPanel extends JPanel {
 				render();
 				scorePanel.render();
 				towerPanel.render();
+				if (mapPanel != null)
+					mapPanel.render();
 			}
 		};
 
